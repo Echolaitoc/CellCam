@@ -215,9 +215,9 @@ void ofApp::floatPoints(bool regenVoronoi)
 		vector <ofxVoronoiCell> newCells;
 		for (auto cell : cells) {
 			newCells.push_back(cell);
-			newCells.at(newCells.size() - 1).pt = getNewFloatyPointPosition(cell.pt, 0.05f, 7);
+			newCells.at(newCells.size() - 1).pt = getNewFloatyPointPosition(cell.pt, 0.01f, 7);
 			for (int i = 0; i < cell.pts.size(); ++i) {
-				newCells.at(newCells.size() - 1).pts.at(i) = getNewFloatyPointPosition(cell.pts.at(i), 0.2f, 7);
+				newCells.at(newCells.size() - 1).pts.at(i) = getNewFloatyPointPosition(cell.pts.at(i), 0.04f, 7);
 			}
 		}
 		shapes = generateShapes(newCells);
