@@ -38,6 +38,7 @@ class ofApp : public ofBaseApp{
 		ofxCvGrayscaleImage cvGrayImage;
 		ofxCvGrayscaleImage cvGrayDiff;
 		ofxCvContourFinder contourFinder;
+		ofRectangle camImageRect;
 		unsigned char * camMirror;
 		float blobActionTimer;
 		float blobActionAreaSum;
@@ -46,6 +47,7 @@ class ofApp : public ofBaseApp{
 		int cvThreshold;
 		bool drawCam;
 		bool drawVoronoi;
+		bool drawCamImage;
 		bool learnBackground;
 		const ofColor BACKGROUND_COLOR = ofColor(255, 200, 50);
 		const ofColor SHAPE_COLOR_NORMAL = ofColor(20, 155, 95);

@@ -12,6 +12,7 @@ void ofApp::setup()
 
 	drawCam = false;
 	drawVoronoi = false;
+	drawCamImage = false;
 	learnBackground = true;
 
 	camWidth = 1280;
@@ -25,6 +26,8 @@ void ofApp::setup()
 	cvGrayImage.allocate(camWidth, camHeight);
 	cvGrayDiff.allocate(camWidth, camHeight);
 	cvThreshold = 50;
+	float camScreenRatio = 0.3;
+	camImageRect.set(ofGetWidth() * camScreenRatio, ofGetHeight() - ofGetHeight() * camScreenRatio, ofGetWidth() * camScreenRatio * -1, ofGetHeight() * camScreenRatio);
 
     ofRectangle bounds = ofRectangle(-50, -50, ofGetWidth() + 100, ofGetHeight() + 100);
     int pointCount = 255;
@@ -256,6 +259,10 @@ void ofApp::draw()
 		str << "Threshold: " << cvThreshold;
 		ofDrawBitmapString(str.str(), 100, 100);
 	}
+	if (drawCamImage)
+	{
+		cam.draw(camImageRect);
+	}
 }
 
 //--------------------------------------------------------------
@@ -378,6 +385,10 @@ void ofApp::keyPressed(int key)
 	case 'c':
 	case 'C':
 		drawCam = !drawCam;
+		break;
+	case 'i':
+	case 'I':
+		drawCamImage = !drawCamImage;
 		break;
 	case 'v':
 	case 'V':
